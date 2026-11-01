@@ -26,4 +26,5 @@ window.BHAJAN_AUDIO=[
   {src:"aud/b3.mp3", title:"Maa Main Khada Dwar Tere|माँ मैं खड़ा द्वार तेरे", dev:5, by:"Lakhbir Singh Lakkha"},
   {src:"aud/b4.mp3", title:"Khatu Shyam – Teen Baan Ke Dhaari|खाटू श्याम – तीन बाण के धारी", dev:6},
   {src:"aud/b5.mp3", title:"New Bhajan|नया भजन"},
+  {src:"aud/hanuman-chalisa.mp3", title:"Hanuman Chalisa|हनुमान चालीसा", dev:3, by:"Gayak ka naam"},
 ];

@@ -28,3 +28,4 @@ window.BHAJAN_AUDIO=[
   {src:"aud/b5.mp3", title:"New Bhajan|नया भजन"},
   {src:"aud/hanuman-chalisa.mp3", title:"Hanuman Chalisa|हनुमान चालीसा", dev:3, by:"Gayak ka naam"},
 ];
+window.CHALISA_AUDIO={3:"aud/hanuman-chalisa.mp3"};

@@ -1,0 +1,12 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Send notification</title>
+<style>body{font:17px/1.5 system-ui,sans-serif;max-width:520px;margin:0 auto;padding:20px;background:#FBF5EA;color:#2A1A14}h1{color:#6B1A1A;font-size:1.4rem}label{display:block;margin:14px 0 4px;font-weight:600}input,textarea,select{width:100%;padding:10px;border:1px solid #E8D9BF;border-radius:10px;font:inherit;box-sizing:border-box;background:#fff}button{margin-top:18px;width:100%;padding:14px;border:0;border-radius:12px;background:#6B1A1A;color:#fff;font:inherit;font-weight:600}#r{margin-top:14px;white-space:pre-wrap}</style></head><body>
+<h1>🔔 सबको नोटिफ़िकेशन भेजें</h1>
+<label for="k">Admin key</label><input id="k" type="password" autocomplete="off">
+<label for="t">Title</label><input id="t" placeholder="🪔 कल दीपावली है">
+<label for="b">Message</label><textarea id="b" rows="3" placeholder="शुभ मुहूर्त देखने के लिए दबाएँ"></textarea>
+<label for="p">दबाने पर कौन सा टैब खुले</label><select id="p"><option value="panchang">पंचांग</option><option value="fest">त्योहार</option><option value="jyotish">ज्योतिष</option><option value="pooja">पूजा</option><option value="chalisa">चालीसा</option><option value="dharm">धर्म</option></select>
+<button id="s">भेजें</button><div id="r"></div>
+<script>var $=function(i){return document.getElementById(i)};try{$("k").value=localStorage.getItem("ak")||""}catch(e){}
+$("s").onclick=async function(){var r=$("r");r.textContent="भेज रहा हूँ…";try{localStorage.setItem("ak",$("k").value)}catch(e){}
+try{var x=await fetch("/api/send",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:$("k").value,title:$("t").value,body:$("b").value,tab:$("p").value})});
+var t=await x.text();r.textContent=x.ok?"✅ भेज दी: "+t:"❌ "+x.status+" "+t}catch(e){r.textContent="❌ "+e.message}};</script></body></html>

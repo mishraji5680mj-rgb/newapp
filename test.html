@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>API Test</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:560px;margin:0 auto;padding:20px;background:#FBF5EA;color:#2A1A14}h1{color:#6B1A1A;font-size:1.3rem}textarea{width:100%;padding:10px;border:1px solid #E8D9BF;border-radius:10px;font:inherit;box-sizing:border-box}button{margin-top:10px;width:100%;padding:13px;border:0;border-radius:12px;background:#6B1A1A;color:#fff;font:inherit;font-weight:600}button:disabled{opacity:.5}#r{margin-top:14px;padding:12px;border-radius:10px;background:#fff;border:1px solid #E8D9BF;white-space:pre-wrap;min-height:2em}.ok{border-color:#2e7d32!important}.bad{border-color:#c62828!important}small{color:#777}</style></head><body>
+<h1>🧪 Chat API Test</h1>
+<p><small>Is file ko project ke root me <b>test.html</b> naam se rakhein, deploy karein, phir <code>/test.html</code> kholein. Test ke baad delete kar dein.</small></p>
+<textarea id="q" rows="3">आज की तिथि क्या है और अगला त्योहार कौन सा है?</textarea>
+<button id="b">AI से पूछें</button>
+<div id="r">Result yahan dikhega…</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+$("b").onclick=async function(){var r=$("r"),b=$("b");b.disabled=true;r.className="";r.textContent="Wait…";
+try{var t0=Date.now(),x=await fetch("/api/chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:$("q").value,lang:"hi",context:"Test page"})});
+var j=await x.json().catch(function(){return{}});var ms=Date.now()-t0;
+if(x.ok&&j.reply){r.className="ok";r.textContent="✅ Chal raha hai ("+ms+" ms)\n\n"+j.reply}
+else{r.className="bad";var m={no_key:"GEMINI_API_KEY Vercel me set nahi hai (set karke Redeploy karein).",gemini_busy:"Gemini quota/busy — thodi der baad try karein.",gemini_error:"Key galat ho sakti hai ya API enable nahi — Vercel > Logs dekhein.",model_unavailable:"Model nahi mila — GEMINI_MODEL check karein.",too_many_requests:"Bahut zyada requests, 1 minute ruk kar try karein."};
+r.textContent="❌ HTTP "+x.status+" — "+(j.error||"")+"\n"+(m[j.error]||"")}}
+catch(e){r.className="bad";r.textContent="❌ "+e.message+"\n(Local file se khola? Deploy kiye hue URL par kholein.)"}
+b.disabled=false};
+</script></body></html>

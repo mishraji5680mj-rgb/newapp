@@ -8,7 +8,7 @@ if(!sec||!host||!window.DEV||!window.DT||!window.IMG)return;
    Top 10 me tap karne par SIRF AUDIO chalta hai (koi page/video nahi khulta).
    "a" aarti -> by default aud/<devta>.mp3.  "c" chalisa -> aud/c<devta>.mp3 (file daalni hogi).
    "b" bhajan audio -> apni mp3 aur title likhein, jaise ["b",3,"aud/b1.mp3","Hanuman Bhajan|हनुमान भजन"] */
-var TOP10=[["c",3],["a",3],["a",0],["a",2],["a",1],["c",1],["a",5],["a",4],["a",6],["a",7]];
+var TOP10=[["c",3,"aud/hanuman-chalisa.mp3"],["a",3],["a",0],["a",2],["a",1],["c",1],["a",5],["a",4],["a",6],["a",7]];
 var CAT=[["a","🪔","Aarti|आरती"],["b","🎶","Bhajan|भजन"],["c","📿","Chalisa|चालीसा"],["s","🙏","Stuti|स्तुति"],["p","📖","Path|पाठ"],["m","🕉️","Mantra|मंत्र"]];
 var LB={a:"Aarti|आरती",c:"Chalisa|चालीसा",m:"Mantra|मंत्र"},SOON="Coming soon 🙏|जल्द आ रहे हैं 🙏";
 function nm(k){return L(DT[k][0]).replace(/^(Bhagwan Shri |भगवान श्री |Shri |श्री )/,"")}

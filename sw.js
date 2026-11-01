@@ -1,4 +1,4 @@
-var C="panchang-v36",A=["./","ui.css","bg.mp3","img/0.webp","img/1.webp","img/2.webp","img/3.webp","img/4.webp","img/5.webp","img/6.webp","img/7.webp","manifest.webmanifest","icon-192.png","icon-512.png","push-config.js","bhajan-list.js","chat-widget.js","aarti.js","bhajan-hub.js","bhajan-player.js","wa.png","hanuman.jpg"];
+var C="panchang-v37",A=["./","ui.css","bg.mp3","img/0.webp","img/1.webp","img/2.webp","img/3.webp","img/4.webp","img/5.webp","img/6.webp","img/7.webp","manifest.webmanifest","icon-192.png","icon-512.png","push-config.js","bhajan-list.js","chat-widget.js","aarti.js","bhajan-hub.js","bhajan-player.js","wa.png","hanuman.jpg"];
 self.addEventListener("install",function(e){self.skipWaiting();e.waitUntil(caches.open(C).then(function(c){return c.addAll(A)}).catch(function(){}))});
 self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C&&x!=="fonts-v1"}).map(function(x){return caches.delete(x)}))}).then(function(){return self.clients.claim()}))});
 // Fast start: show the saved copy at once, refresh it in the background (next open gets the update).
